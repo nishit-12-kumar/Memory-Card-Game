@@ -1,0 +1,170 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    justify-content: center;
+    width: 90vw;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+}
+
+.card {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;  /* Ensures square shape */
+    background-color: #ff7eb3;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.6s, box-shadow 0.3s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* Card hover effect */
+.card:hover {
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+    transform: scale(1.05);
+}
+
+/* Flipped card */
+.card.flipped {
+    transform: rotateY(10deg);
+    background-color: #ffcc29;
+    color: #1e3c72;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Hide matched cards */
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* Moves Counter */
+#moves {
+    font-size: 1rem;
+    margin-top: 10px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Winning Message - Responsive Centering */
+#win-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    font-size: 1.3rem;
+    color: #1e3c72;
+    width: 80%;
+    max-width: 350px;
+}
+
+/* Play Again Button */
+#win-message button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    background-color: #ff7eb3;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#win-message button:hover {
+    background-color: #ff3d6e;
+}
+
+/* 🌟 Responsive Design for Mobile & Tablets */
+@media (max-width: 768px) {
+    .game-board {
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+        max-width: 320px;
+        gap: 8px;
+    }
+    
+    .card {
+        font-size: 1.5rem;
+    }
+    
+    #win-message {
+        font-size: 1.1rem;
+        padding: 12px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-board {
+        grid-template-columns: repeat(4, minmax(60px, 1fr));
+        max-width: 280px;
+        gap: 5px;
+    }
+    
+    .card {
+        font-size: 1.3rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    #moves {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 320px) {
+    .game-board {
+        grid-template-columns: repeat(4, 50px);
+        gap: 5px;
+    }
+    
+    .card {
+        font-size: 1rem;
+    }
+    
+    #win-message {
+        width: 90%;
+        font-size: 1rem;
+    }
+    
+    #win-message button {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+}
