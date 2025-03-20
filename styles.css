@@ -50,7 +50,7 @@ body {
 
 /* Flipped card */
 .card.flipped {
-    transform: rotateY(10deg);
+    transform: rotateY(180deg);
     background-color: #ffcc29;
     color: #1e3c72;
     transition: transform 0.5s ease-in-out;
